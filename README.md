@@ -46,6 +46,20 @@ specified, a persistent volume will be automatically provisioned for you.
     --set ingress.enabled=true
 ```
 
+
+```bash
+➜  helm install plex ./charts/kube-plex \
+    --namespace plex \
+    --set claimToken=claim-HGWCdz4Qa6BQ2ZeXt4M-
+```
+
+NOTES:
+1. Get the application URL by running these commands:
+  export POD_NAME=$(kubectl get pods --namespace plex -l "app=kube-plex,release=plex" -o jsonpath="{.items[0].metadata.name}")
+  echo "Visit http://127.0.0.1:8080 to use your application"
+   
+
+
 This will deploy a scalable Plex Media Server instance that uses Kubernetes as
 a backend for executing transcode jobs.
 

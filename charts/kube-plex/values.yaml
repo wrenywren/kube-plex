@@ -9,7 +9,7 @@ image:
 kubePlex:
   enabled: true
   image:
-    repository: quay.io/munnerz/kube-plex
+    repository: wrenywren/kube-plex
     tag: latest
     pullPolicy: Always
 
@@ -17,7 +17,7 @@ kubePlex:
 claimToken: ""
 
 # Set the timezone of the plex server
-timezone: Europe/London
+timezone: America/New_York
 
 service:
   type: ClusterIP
@@ -44,7 +44,7 @@ ingress:
   enabled: false
   # Used to create an Ingress record.
   hosts:
-    - chart-example.local
+    - plexserver
   annotations:
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
@@ -68,7 +68,7 @@ persistence:
     # Optionally specify claimName to manually override the PVC to be used for
     # the transcode directory. If claimName is specified, storageClass and size
     # are ignored.
-    ## claimName: "plex-transcode-pvc"
+    claimName: "plex-transcode-pvc"
     # Optionally specify a storage class to be used for the transcode directory.
     # If not specified and claimName is not specified, the default storage
     # class will be used.
@@ -83,7 +83,7 @@ persistence:
     # Optionally specify claimName to manually override the PVC to be used for
     # the data directory. If claimName is specified, storageClass and size are
     # ignored.
-    ## claimName: "plex-data-pvc"
+    claimName: "plex-data-pvc"
     # Optionally specify a storage class to be used for the data directory.
     # If not specified and claimName is not specified, the default storage
     # class will be used.
@@ -105,7 +105,7 @@ persistence:
     # Optionally specify claimName to manually override the PVC to be used for
     # the config directory. If claimName is specified, storageClass and size
     # are ignored.
-    ## claimName: "plex-config-pvc"
+    claimName: "plex-config-pvc"
     # Optionally specify a storage class to be used for the config directory.
     # If not specified and claimName is not specified, the default storage
     # class will be used.
