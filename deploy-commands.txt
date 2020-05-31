@@ -3,3 +3,10 @@ helm install plex ./charts/kube-plex \
     --set claimToken=[insert claim token here] \
     --set persistence.data.claimName=existing-pms-data-pvc \
     --set ingress.enabled=true
+
+kubectl create namespace plex
+
+helm install plex ./charts/kube-plex \
+    --namespace plex \
+    --set claimToken=claim-J1g1yB7AA2YHGyYyP-ZG \
+    --set ingress.enabled=true

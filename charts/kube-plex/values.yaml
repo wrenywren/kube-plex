@@ -83,7 +83,7 @@ persistence:
     # Optionally specify claimName to manually override the PVC to be used for
     # the data directory. If claimName is specified, storageClass and size are
     # ignored.
-    claimName: "plex-data-pvc"
+    #claimName: "plex-data-pvc"
     # Optionally specify a storage class to be used for the data directory.
     # If not specified and claimName is not specified, the default storage
     # class will be used.
